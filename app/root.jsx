@@ -7,6 +7,7 @@ import {
 } from "@remix-run/react";
 
 import "./tailwind.css";
+import { Toaster } from "react-hot-toast";
 
 export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -21,18 +22,47 @@ export const links = () => [
   },
 ];
 
-// eslint-disable-next-line react/prop-types
 export function Layout({ children }) {
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Form Builder</title>
         <Meta />
         <Links />
+        <title>Form Builder</title>
       </head>
       <body>
+        <Toaster
+          position="top-center"
+          
+          toastOptions={{
+            // Define default options
+            className: "",
+            duration: 5000,
+            removeDelay: 1000,
+            style: {
+              background: "#363636",
+              color: "#fff",
+            },
+
+            // Default options for specific types
+            success: {
+              duration: 3000,
+              iconTheme: {
+                primary: "green",
+                secondary: "black",
+              },
+              error: {
+              duration: 3000,
+              iconTheme: {
+                primary: "red",
+                secondary: "black",
+              },
+            },
+            },
+          }}
+        />
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -44,3 +74,6 @@ export function Layout({ children }) {
 export default function App() {
   return <Outlet />;
 }
+
+
+foibfwoub
